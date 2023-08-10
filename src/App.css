@@ -1,0 +1,117 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+body {
+  /* background-color: #404048; */
+}
+
+.container {
+  /* margin: auto;
+  text-align: center; */
+  background-color: white;
+  min-width: 100%;
+  /* border: solid; */
+  margin-bottom: 80px;
+  /* padding-left: 3px; */
+  /* padding-right: px; */
+  /* padding: 8px; */
+  /* padding-bottom: 10px; */
+  height: 667px;
+}
+
+h3 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: solid;
+}
+
+.img1 {
+  width: 80%;
+  margin: auto;
+  /* height: 100%; */
+}
+
+.img5 {
+  width: 80%;
+  margin: auto;
+  padding-top: 5px;
+  padding-bottom: 30px;
+  /* height: 100%; */
+}
+
+.img5 {
+  width: 80%;
+  margin: auto;
+  /* height: 100%; */
+}
+
+/* .img3 {
+  background-color: red;
+} */
+
+.discription {
+  border: solid;
+  height: 64px;
+  margin-top: 0;
+}
+
+.line1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.line2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.line3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
