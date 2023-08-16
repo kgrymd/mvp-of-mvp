@@ -3,8 +3,11 @@
 import './App.css'
 
 import Slider from "react-slick";
+import Youtube from "react-youtube"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import "./Youtube.scss";
 
 function App() {
 
@@ -17,13 +20,30 @@ function App() {
     vertical: true,
   };
 
+  const opts = {
+    playerVars: {
+      playsinline: 1,
+      autoplay: 1,
+      mute: 1,
+      loop: 1,
+      // width: '310',
+      width: '100%', // ここを変更
+      height: 'auto', // ここを追加
+    },
+  }
+
 
   return (
 
     <Slider {...settings}>
       <div className='container'>
         <h3>トランポリンやろ</h3>
-        <img className='img1' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHUAAAB1CAMAAABH2l6OAAABhlBMVEX///94c3BYVlePtzr87N2LdmX4+PjrnhT/8R7/8OFVUViRujn19fWxsbP8/PxWVFbh4eKmpqe+vr350r9va2lkYGDN3rBTTFmTuUG4uLm3znqMtTD/+B2MtyyuyW3/9udmb1FdYFWEpUG90YKavU5VQTZwYluBcGT/5tDs7Oz3+fLA1Zi50Y7u8+Sdv1iKtyFvgE13j0lIRkfNzMw4NTZHMCOVg3WvophwW06EeXNLNy6Ca1fFqIyXj4vezsDs3tAoAADvvy/srjT20ynh6dF8l0ZqdlCKrj7X5MFjUknLwbo5GwCzmYHtzKv/37w0HxfHtKPYup6XemAwCwBoWF7BtiLMwh5kURhWRUZTPxeRgytZRjA/JRTo3R61qSE5GhAuECY1GiIRAACekRmUeHqrj4xwXxh6ahNAKUJWQQBxZHOLewBONxzClSyidSaobQPMiRKCUQBqXDGTYSV1aTBwRClXMjBuRQi4iUzqp0PjqFjJpXfisXLuyZGEZT6YqXexvJmmq5UDKSCVAAALAUlEQVRoge2biX/ayBXHZQ4l4hASsQEjg3wggcAGYq0OwEI58CEHe3GbzbqOSZq6TfZo7TRpN9l0W8f/ed+MwAYbg4Rx8unn01/sWBIz76s3x5s3IIgQ8eUVwj9fHkoQ5AQMSYzzsmTfn7FEh0KoelSxWHfQsbFStGJZlmBZosGKEltxBx0PKxmCoNf8oFpNt3RVCjvxlrz2xJGigu7vk0qHackV1D2WVbCb/toFVpNC4qwrqFtsVMEgXRB62DWNNiq0G6g7LIM8BaRl4yzL9ram0mzWFdQVVuztU72nh2t05doxdY19x1FKVnqYVSHbO6YI5ZqAca11p1ir45yuC1WrZzwhZ7dnB8/bIbadYZknqC+r1e587ceGhEHzZ6hlR1hDv4zqodeYStS1XSdDSqhdQtaEnlMterWJR1odjZWeXDimW1W9uYahWd3ublUWx3BlZJEoQGqCLf/azu7at3BQhT5u6hZuYnGcuDd4Ml8EO9Stgtbaayq62Mzlcjt7a2t7Ozu7IDRzgdrfiw7jwJViEsvIWUHunIk1v6XxFFWv+85F1Zt1ypfb+RaosigNteYUq1m6mK0LIRKZkxXBf2hiFHVBNVVBA+zv9MtUFxGvvygtK75ti1crIsSdkGVqimjzWhfO+nhTN8FlBVFD11lygSVFGCs87zOVli4TUS1HqSqiUtqDVo+3+JC3an1UlwtoT3HaMsxtCrUiNDJhtHw7OZuTVTR0GZ/UNZua1Ws9M8d1stDbSoJQt01C1AlrvG+HsqmHcNm0/dUVu6s1y789NcCGU10szxVdqyPTvCqjGOHjd3y+3L1790y4SmWz6CVTELpUQTHs+gMCoxtFD/0t7KyJAnv0SZ2nfPeQ8JSxfRWydgurL1tmFg/1l4prLN35JW2Po0ZFQI61BDhnrCctqkM16z4eBhocQLjA/WvmKK0iyLJlirIsD4VcQoZIyK3R/yQ6IEM0jApGoJAreKTI4FgOY7YNUdDV+rnvlGmavGZsG1M+s2JoIgPVnWJDWCSC4wMJpZwGmi5UFi0oIaU7Y+CMDMldas4nmRLPGOE66+MlM79dCRGhYelbrwBHg4M0SSMR6ADdsNBCTZkVwYxQ72Bt19Gswb5SeZ6vi4xsoJJ85aUYpm+wecP3y1QxSxUYQtZ9ncmDBs50NyBTdTFrWVGCtSevz9QejMzLR0rGWEo7nCUq/lwHI4XCare9eSEsMzTB6vaZiu7g5prFWH7790/lio4jFNXSRfU8FGu4wQ27ISh+W7yyvo+laLXO+6in3z37/ul+tbmzm0Phl+9SNTSvJDELUMoUs1l/VpjMllxWNL71h7m5uWcHz6tV/97ubq6rNR1yCJI9RFGDqgsMA9N1EhtyJMnS99t3QXNz7fYLpVprNvf29prNmiDKsLk8zJo8avfrUvGxxb48ujt3F2vuqLmm+vff/fHVU3Z21th/oGImpQ5MiW+mkPGnozY0MuK++XPrLwdz7RcHr98cfdd+gxZEvn7obNfuViT7w48vjhB2rv2sPYeaG+tFhYeUooqib2jSTYwl/fSi08wXmmvH67oSRi8ztwIlaHtMnQNB7Wc/PxBxWJDkyfcr1uzruz2+vjv6+fVfrSkWw0iGcRrx3Srwt0cPH3fBz36SZUayIwIwb+3dOub7u+2HjwDcRq17FO5eD90iE2LtMXL0MYAB/fBH5pxJ0rc0kJD56uNHuIXn7rYfP37YDbc0DdxJDaS+N83wAj97AEMWOYqb+NlM514YeXLty1TFnmDDCpVwSHx+0EZDyW7iYzsVJaRJdinsvasXfcWevD35+/s7x6/e4bCIAuNrN6mgU8kWZKYw81mjMm1Z+8d3bL19/+qHfxy8gIh4eBvDVlJo8vCJoqtaa7u+0+xSMfn4/T9/+WUyGcMl0bByZiHXpkC+3T6qjV5lo7cQATWDEIHJIw2gAvfkw/7Eg6CkEFPbmpoVLUF4Lgyg3rlz7PT9dxeqWFOGwUYh2DISO5CqGJNvY1q6aL/wh5OPJycnxydv3/7667mralNgJ5WaDZJsGFHDMMIVNdtc+/gJ6c4nYWfXvHiT5hYEux608YeNF2xnDPVfv/3702/v1d0cJN3CFJq4YUucfGujbReNtl6wtSWlcMX/8bdPgt40IfP2aYpMVETGmrzTl2ZIKFz9zwdDMgQVuLxpiQbsdG8pf+m7DVaR0Kc7ioaiyDRBW+HRlSbBxf8zU0KdzzJE5Xay4WslK6pBGNaXhYJgSglfHArTxvgK0P/rf1F0fmWl0WhsxWKFQmEZCf7GYltbjcbKSn7iy3p+pRErLKWLGW8qVUJKXahkX/BmiulkIdZYyU+AR+cbsaV0AtnlvJubi4vr98vl8sbGfFcbG3B+f31xcdPr5eAWUpn0UqxxA8fp/NZykSuVALd4vzw/v+AJxOPxAFakK3wGl+MRz8L8Rvk+0MH/YHFpayxyo1BMlVLBxHp5fiEQxyCPxzMzMz1IMzPwGr6FeGBhvryeCELdYqHhDrlSyKAmXS8vgHMRmzc9PTVcAMfsCPi+UF4MQoNnCivO3UyXuGBwcQNuHPEA2Gsb+RW5EPa/73VUBciBjcVgkCulnTncKEJPBtcX4gF8554+kx7s9xUNLBWIL6wHvVyp6MDf5VLQG9xciHes97fhQKTN7W//zsX4ghdxl0cw6WLKC1BPwK42c7nrPIO5kcjlkjP2CwEPzChvqjicmuagUHAjMNCB/m71dLv3Usd21Lm9wEYQLHLpoX1a8iItdD26dtji2YJn0XUFOiYiC9hiadiYWkaueoPluGcUdoSmuwbiZeSrlxvWtUlM9Xrnz7GDGm80c+YcOm8b5JIOqN5yxJ6qMHpcc8+ZYKPsdUBdztiFgsHNDQ8KSnjo4DjolDiDKkTs8buxGexQi8NauJFIozKZTKEYLJ5WpmcMYwqYHvxvKBuPLjzXjMjMjOGJGJXTzQSSN+H1phNDI9RSIpnhEoVYAS3chcLnM9YIG+jHQFOlEwCvqPMK/GHZMIt09hmt+fh3KZFJJpaGQVHPptPpWAGyBKhQSCYLy59Pz8Lx8PmqMyBO2JfRirMKTOPz58JybBl+YpnlWHoZ7KVGQAkiVkrA7UGSwHEc/KK/qVIareb2AhsYJLgMyyus7gUuZVdFlVHVTCGZKcVGQWGVS5cS6aV0pjuc7dFly+tF6cT6fVAZCR2s24mEXaC3EsdBXgF5iJPoT5CzZ2lYkqFCMcH1Wum/gT5dKcVxCbCQhMQgeeborQNyNsyGYkUOZUA4Q+MGsK9XEEpD5gZVMymuGMuDNadUEpKmWJIrcZD4QX1gJwDuvepTr3dQIIEyxeRSEvqnxCVjkDqRLqj4KU6CbhSSCTvpRPAk0IsZEJ6FtvCMhEtFXCSJikD6CgOj0MDJGumKen6WX9kqJIuQ9wWxI6BkV0vnR+gy3A+s3ylvMVnY6kmKQ2NRseg8c3Z6msSdDHlnZ24E8fzA57gr06enjStbADe+XinHhFn0SU0e9hyw6diCTUdH9nZjJZ/vFnFizSV1mG5Gla628A2oqF8dvBFER6eM6StvU41NxdZG7j1IQl6NrE6Oalsb0cbQtPI3q99MkGpbG/0QJD3gcY6xqV1rYz3wOT51pO0h93Nz6nXWh3X5BKhjPLQ8Car7B7QnQnX9MPpkqG4fvHdGHfHc/WXOyPhssOz0iEKoyEiquy9UGKurkVHU1dXV0VRXXx6ZWl31TIbq5osy5OjPyx1/pI55X+W7SF/le1f/BcGux7IdNpyRAAAAAElFTkSuQmCC" alt="トランポリンの画像" />
+        <Youtube
+          videoId="ufNWSa7ou74"//挿入したいyoutube動画のURL末尾を入力
+          opts={opts}
+          className="iframe"
+          containerClassName="youtube"
+        />
         <p className='discription'>instaで動画見てやりたくなりました〜<br /><a href="https://www.instagram.com/reel/CvcOw9Dtklp/?igshid=NTc4MTIwNjQ2YQ==">動画を見る</a></p>
         <div className="container2">
           <div className="line1">
@@ -59,7 +79,13 @@ function App() {
       <div className='container'>
         <h3>VALORANTやろ</h3>
         {/* <img className='img1' src="" alt="トランポリンの画像" /> */}
-        <img className='img5' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Valorant_logo_-_pink_color_version.svg/640px-Valorant_logo_-_pink_color_version.svg.png" alt="トランポリンの画像" />
+        {/* <img className='img5' src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Valorant_logo_-_pink_color_version.svg/640px-Valorant_logo_-_pink_color_version.svg.png" alt="トランポリンの画像" /> */}
+        <Youtube
+          videoId="eb1sFXlTWb4"//挿入したいyoutube動画のURL末尾を入力
+          opts={opts}
+          className="iframe"
+          containerClassName="youtube"
+        />
         <p className='discription'>至急上手くなりたいです〜<br /><a href="https://www.youtube.com/watch?v=eb1sFXlTWb4">動画を見る</a></p>
         <div className="container2">
           <div className="line1">
@@ -92,7 +118,13 @@ function App() {
       </div>
       <div className='container'>
         <h3>アルゼンチンタンゴやろ</h3>
-        <img className='img5' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQyLOVt5GDerP9sUcwQJgUUPY6hizVIBHigA&usqp=CAU" alt="トランポリンの画像" />
+        <Youtube
+          videoId="WL5-n7bp0JY"//挿入したいyoutube動画のURL末尾を入力
+          opts={opts}
+          className="iframe"
+          containerClassName="youtube"
+        />
+        {/* <img className='img5' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQyLOVt5GDerP9sUcwQJgUUPY6hizVIBHigA&usqp=CAU" alt="トランポリンの画像" /> */}
         <p className='discription'>至急上手くなりたいです〜<br /><a href="https://youtu.be/WL5-n7bp0JY">動画を見る</a></p>
         <div className="container2">
           <div className="line1">

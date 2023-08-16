@@ -1,0 +1,30 @@
+.youtube {
+    position: relative;
+    width: 100%;
+    height: 0; // この行を追加
+    padding-top: 56.25%; // 16:9のアスペクト比に基づいて計算
+    // padding-top: calc(100% * 9 / 16); // 16:9のアスペクト比に基づいて計算
+}
+
+.iframe {
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // width: 100%;
+    // height: 100%;
+    position: relative; // この行を変更
+    width: 100%;
+    height: auto; // この行を変更
+    aspect-ratio: 16/9; // この行を追加
+}
+
+@media screen and (max-width:767px) {
+    .iframe {
+        position: relative;
+
+        iframe {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+}
