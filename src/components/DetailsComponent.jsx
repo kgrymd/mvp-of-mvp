@@ -1,6 +1,6 @@
 import UserInfoComponent from './UserInfoComponent';
 
-function DetailsComponent({ period, participants, imageUrl }) {
+function DetailsComponent({ period, participants, imageUrl1, imageUrl2 }) {
     return (
         <div className="container2">
             <UserInfoComponent username="keijixi けいじぃ" iconUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Hw9B4wFuJ_XmDFfcfP9cd16SfetYhNixXQ&usqp=CAU" />
@@ -16,8 +16,8 @@ function DetailsComponent({ period, participants, imageUrl }) {
             </div>
             <div className="line3">
                 <p>参加者</p>
-                <img src={imageUrl} alt="アイコン画像" width='45px' height='45px' />
-                <img src={imageUrl} alt="アイコン画像" width='35px' height='35px' />
+                <img src={imageUrl1} alt="アイコン画像" width='35px' height='35px' />
+                <img src={imageUrl2} alt="アイコン画像" width='45px' height='45px' />
                 <img className='img3' src="/join.jpeg" alt="アイコン画像" width='85px' height='85px' />
             </div>
         </div>

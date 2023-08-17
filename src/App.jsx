@@ -45,7 +45,8 @@ function App() {
         <DetailsComponent
           period="まず１ヶ月"
           participants="〜4人"
-          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Hw9B4wFuJ_XmDFfcfP9cd16SfetYhNixXQ&usqp=CAU"
+          imageUrl1="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr78vU3xMHGZ1F4Mb191cX46P6CST90Ro4og&usqp=CAU"
+          imageUrl2="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLz4L3QDb7a3-pkb1NbrgZ5cMj_SRWiWZ1Pw&usqp=CAU"
         />
       </div>
 
@@ -59,7 +60,8 @@ function App() {
         <DetailsComponent
           period="まず１ヶ月"
           participants="〜4人"
-          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Hw9B4wFuJ_XmDFfcfP9cd16SfetYhNixXQ&usqp=CAU"
+          imageUrl1="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr78vU3xMHGZ1F4Mb191cX46P6CST90Ro4og&usqp=CAU"
+          imageUrl2="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLz4L3QDb7a3-pkb1NbrgZ5cMj_SRWiWZ1Pw&usqp=CAU"
         />
       </div>
 
@@ -73,7 +75,8 @@ function App() {
         <DetailsComponent
           period="まず１ヶ月"
           participants="〜4人"
-          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Hw9B4wFuJ_XmDFfcfP9cd16SfetYhNixXQ&usqp=CAU"
+          imageUrl1="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr78vU3xMHGZ1F4Mb191cX46P6CST90Ro4og&usqp=CAU"
+          imageUrl2="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLz4L3QDb7a3-pkb1NbrgZ5cMj_SRWiWZ1Pw&usqp=CAU"
         />
       </div>
     </Slider>
